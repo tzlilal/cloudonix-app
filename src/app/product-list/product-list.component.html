@@ -1,0 +1,18 @@
+<div class="container">
+  <table *ngIf="products" class="table table-striped">
+    <tr>
+      <th *ngFor="let col of columns">{{col}}</th>
+    </tr>
+  
+    <tr *ngFor="let product of products" >
+      <td (click)="onShowDescription(product)">{{product.id}}</td>
+        <td (click)="onShowDescription(product)">{{product.name}}</td>
+          <td (click)="onShowDescription(product)">{{product.cost}}</td>
+            <td (click)="onShowDescription(product)">{{product.sku}}</td>
+                <td>
+                  <button class="btn btn-primary" (click)="onDeleteProduct(product)">Delete</button>
+                  <button class="btn btn-primary" (click)="onEditProduct(product)" style="margin-left: 20px;">Edit</button>
+                </td>
+    </tr>
+  </table>  
+</div>

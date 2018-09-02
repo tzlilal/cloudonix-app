@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="login-header">Login</h1>
+  <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+    <div class="form-group">
+      <label for="authKey">Please enter an authorization key:</label>
+      <input 
+        ngModel name="authKey" 
+        #authKey="ngModel" 
+        id="authKey"
+        type="text" 
+        class="form-control" 
+        placeholder="Authorization key" 
+        required 
+        pattern=".*\S+.*">
+    </div>
+    <div class="alert alert-danger" *ngIf="!authKey.valid && authKey.touched">
+        Authorization key cannot be empty
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+      Submit
+    </button>
+  </form>
+</div>
+
